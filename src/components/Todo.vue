@@ -2,12 +2,12 @@
 import { defineComponent, Ref, ref } from 'vue'
 import Input from './reusable/Input.vue';
 import Select from './reusable/Select.vue';
-import TodoList from './TodoList.vue';
+import TodoList, { todoItems } from './TodoList.vue';
 
 export default defineComponent({
     components: { TodoList, Input, Select },
     setup () {
-        const todoArray: Ref<object[]> = ref([])
+        const todoArray: Ref<todoItems[]> = ref([])
         const textInput = ref()
         const taskState = ref()
 

@@ -1,7 +1,7 @@
 <script lang="ts">
-import { defineComponent, defineProps, PropType } from 'vue'
+import { defineComponent, PropType } from 'vue'
 
-type todoItems = {
+export type todoItems = {
     task: string,
     state: string
 }
@@ -14,8 +14,6 @@ export default defineComponent({
         removeIndex: (index: number) => true
     },
     setup (props, { emit }) {
-        console.log(props.todoItems);
-
         function removeTask (index: number) {
             emit('removeIndex', index)
         }
