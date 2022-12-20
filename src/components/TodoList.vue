@@ -1,10 +1,10 @@
 <script lang="ts">
-import { defineComponent, defineProps } from 'vue'
+import { defineComponent, defineProps, PropType } from 'vue'
 
 
 export default defineComponent({
     props: {
-        todoItems: Array
+        todoItems: Array as PropType<string[]>
     },
     setup (props) {
         console.log(props.todoItems);
