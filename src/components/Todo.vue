@@ -12,6 +12,6 @@ export default defineComponent({
 
 <template>
     <div>
-        <TodoList />
+        <TodoList :todo-items="['Hola', 'Adios']" />
     </div>
 </template>
