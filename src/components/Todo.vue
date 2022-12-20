@@ -1,16 +1,22 @@
 <script lang="ts">
 import { defineComponent, Ref, ref } from 'vue'
 import Input from './reusable/Input.vue';
+import Select from './reusable/Select.vue';
 import TodoList from './TodoList.vue';
 
 export default defineComponent({
-    components: { TodoList, Input },
+    components: { TodoList, Input, Select },
     setup () {
-        const todoArray: Ref<string[]> = ref([])
+        const todoArray: Ref<object[]> = ref([])
         const textInput = ref()
+        const taskState = ref()
 
         function addTask () {
-            todoArray.value.push(textInput.value)
+            todoArray.value.push(
+                {
+                    task: textInput.value, state: taskState.value
+                }
+            )
 
         }
         function removeItem (index: number) {
@@ -20,7 +26,8 @@ export default defineComponent({
             todoArray,
             textInput,
             enviar: addTask,
-            removeItem
+            removeItem,
+            taskState
         }
     },
 })
@@ -30,6 +37,7 @@ export default defineComponent({
     <div>
         <form @submit.prevent="enviar()">
             <Input v-model="textInput" :place-holder="'Introduce tarea'" :id="'1'" />
+            <Select :options="['completada', 'sin completar']" v-model="taskState" />
             <button type="submit">Enviar</button>
         </form>
         <TodoList :todo-items="todoArray" @removeIndex="(index) => removeItem(index)" />
