@@ -25,4 +25,4 @@ export default defineComponent({
         </h1>
         <img :src="imageUrl" alt="">
     </div>
-</template>e
+</template>
