@@ -8,7 +8,7 @@ export default defineComponent({
 
     setup () {
 
-        const imageUrl = ref()
+        const imageUrl = ref<string>()
 
         const request = new requestHandler(new AxiosRequest())
 

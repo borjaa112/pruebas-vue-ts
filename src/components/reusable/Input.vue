@@ -10,7 +10,7 @@ export default {
 </script>
 <template>
     <label :for="id">{{ labelText }}</label>
-    <input :value="modelValue" @change="$emit('update:modelValue', $event.target.value)" :id="id"
+    <input :value="modelValue" @change="$emit('update:modelValue', ($event.target as HTMLInputElement).value)" :id="id"
         :placeholder="placeHolder" />
 </template>
   
